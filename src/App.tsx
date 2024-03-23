@@ -1,9 +1,8 @@
 // TodoApp.tsx
 import React, { useState } from "react";
-import TodoForm from "./OurComponents.tsx/TodoForm";
-import TodoList from "./OurComponents.tsx/TodoList";
+import TodoForm from "./OurComponents/TodoForm";
+import TodoList from "./OurComponents/TodoList";
 import "./App.css";
-
 
 type TodoItem = {
   id: number;

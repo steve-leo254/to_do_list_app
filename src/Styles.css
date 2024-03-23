@@ -1,0 +1,69 @@
+/* styles.css */
+.sidebar {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    width: 56px;
+    height: 100%;
+    background: #4f2cd4;
+    transition: width 0.4s;
+}
+.sidebar.open {
+    width: 260px;
+}
+.sidebar .inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 260px;
+}
+.sidebar header {
+    display: flex;
+    align-items: center;
+    height: 64px;
+    padding: 0 6px;
+    background: rgb(0 0 0 / 25%);
+}
+New Posts
+.sidebar-burger {
+    width: 44px;
+    height: 72px;
+    display: grid;
+    place-items: center;
+    color: #f9f9f9;
+}
+.sidebar header > img {
+    height: 28px;
+}
+.sidebar nav {
+    display: grid;
+    padding: 6px;
+    gap: 2px;
+}
+.sidebar nav > button {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    height: 44px;
+    width: 44px;
+    font-family: "Poppins";
+    font-size: 16px;
+    line-height: 1;
+    padding: 0 12px;
+    border-radius: 8px;
+    color: #f9f9f9;
+}
+.sidebar nav > button:hover {
+    background: rgb(0 0 0 / 30%);
+}
+.sidebar header > img, .sidebar nav > button p {
+    opacity: 0;
+    transition: 0.3s;
+}
+.sidebar.open :is(nav button p, header > img) {
+    opacity: 1;
+}
+.sidebar.open nav > button {
+    width: 100%;
+}
