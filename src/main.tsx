@@ -6,7 +6,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Contact from './OurComponents/Contact'
+import ContactUs from './OurComponents/Contact'
 
 const router = createBrowserRouter([
   {
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
   },
   {
     path:"/contact",
-    element:<Contact/>
+    element:<ContactUs/>
   }
 ]);
 

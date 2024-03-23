@@ -1,14 +1,20 @@
-import React from "react";
+import React,{ useState} from "react";
 import { Button, Col, Form, FormGroup, Input, Label, Row } from "reactstrap";
 
-interface ContactProps {
-    submitHandler: () => void;
+interface ContactUs {
+    submitHandler: (email: string, message: string) => void;
 }
 
-const Contact: React.FC<ContactProps> = ({ submitHandler }) => {
+const Contact: React.FC<ContactUs> = ({ submitHandler }) => {
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
+
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        submitHandler();
+        if (!email.trim() || !message.trim()) return;
+        submitHandler(email, message);
+        setEmail("");
+        setMessage("");
     };
 
     return (
