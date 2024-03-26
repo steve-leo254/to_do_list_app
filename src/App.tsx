@@ -1,34 +1,18 @@
-// TodoApp.tsx
-import React, { useState } from "react";
-import TodoForm from "./OurComponents/TodoForm";
-import TodoList from "./OurComponents/TodoList";
-import "./App.css";
+import React from 'react';
+import './App.css';
+import HomeComponent from './Pages/index.tsx';
+import { Routes, Route } from 'react-router-dom';
+import AboutUs from './Pages/AboutUs.tsx';
 
-type TodoItem = {
-  id: number;
-  text: string;
-};
 
-const TodoApp: React.FC = () => {
-  const [todos, setTodos] = useState<TodoItem[]>([]);
-
-  const addTodo = (text: string) => {
-    setTodos([...todos, { id: todos.length + 1, text }]);
-  };
-
-  const removeTodo = (id: number) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-  };
-
+function App() {
   return (
-    <div>
-      <h1 className="display-4 text-center mb-4">To-Do List</h1>{" "}
-      <div className="todo-list-container"> {}
-        <TodoForm addTodo={addTodo} />
-        <TodoList todos={todos} removeTodo={removeTodo} />
-      </div>
-    </div>
-  );
-};
+    <Routes>
+      <Route path="/" element={<HomeComponent />} />
+      <Route path="/about" element={<AboutUs />} />
+      <Route path="/login" element={<Login />} />
+    </Routes>
+  )
+}
 
-export default TodoApp;
+export default App
