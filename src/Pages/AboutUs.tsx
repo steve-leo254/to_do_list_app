@@ -2,18 +2,17 @@ import React , {useState} from "react";
 import { Container, Row, Col, Card, Button } from "reactstrap";
 import { useNavigate } from "react-router-dom";
 
-function AboutUs (){
-  const navigate = useNavigate ();
-  const handleClick = () => {
-    navigate ("/")
-  }
-}
+
 
 interface AboutUsProps {
   title?: string;
 }
 
 const AboutUs: React.FC<AboutUsProps> = ({ title = "About Us" }) => {
+  const navigate = useNavigate ();
+  const handleClick = () => {
+    navigate ("/Contact")
+  }
   return (
     <section className="py-3 py-md-5 py-xl-8 ">
       <Container>
@@ -25,8 +24,8 @@ const AboutUs: React.FC<AboutUsProps> = ({ title = "About Us" }) => {
               unknown, and fostering a culture of continuous learning.
             </h3>
 
-            <Button color="primary" size="small" className="button1">
-              Signup Now
+            <Button  onClick={handleClick} color="primary" size="small" className="button1">
+              ContactUs
             </Button>
           </Col>
         </Row>
