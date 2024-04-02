@@ -2,33 +2,33 @@ import React, { useState } from "react";
 import { Button, Col, Form, FormGroup, Input, Label } from "reactstrap";
 
 interface ContactFor {
- submitHandler: (name: string, email: string, message: string) => void;
+  submitHandler: (name: string, email: string, message: string) => void;
 }
 
 const ContactUs: React.FC<ContactFor> = ({ submitHandler }) => {
- const [formState, setFormState] = useState({
+  const [formState, setFormState] = useState({
     name: "",
     email: "",
     message: "",
- });
+  });
 
- // State for validation errors
- const [errors, setErrors] = useState({
+  // State for validation errors
+  const [errors, setErrors] = useState({
     name: "",
     email: "",
     message: "",
- });
+  });
 
- const handleChange = (
+  const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
- ) => {
+  ) => {
     setFormState({
       ...formState,
       [e.target.name]: e.target.value,
     });
- };
+  };
 
- const validateForm = () => {
+  const validateForm = () => {
     let isValid = true;
     let newErrors = { name: "", email: "", message: "" };
 
@@ -52,16 +52,16 @@ const ContactUs: React.FC<ContactFor> = ({ submitHandler }) => {
 
     setErrors(newErrors);
     return isValid;
- };
+  };
 
- const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!validateForm()) return; // Validate form before proceeding
+    if (!validateForm()) return;
     submitHandler(formState.name, formState.email, formState.message);
     setFormState({ name: "", email: "", message: "" });
- };
+  };
 
- return (
+  return (
     <Form onSubmit={handleSubmit}>
       <FormGroup row>
         <Label for="exampleName" sm={1}>
@@ -123,7 +123,7 @@ const ContactUs: React.FC<ContactFor> = ({ submitHandler }) => {
         </Col>
       </FormGroup>
     </Form>
- );
+  );
 };
 
 export default ContactUs;

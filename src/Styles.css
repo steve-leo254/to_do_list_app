@@ -6,25 +6,25 @@
     color: #fff;
     padding: 20px;
     transition: width 0.5s;
-   }
-   
-   .sidebar.active {
+}
+
+.sidebar.active {
     width: 0;
-   }
-   
-   .nav-item {
+}
+
+.nav-item {
     margin-bottom: 10px;
-   }
-   
-   .nav-link {
+}
+
+.nav-link {
     color: #fff;
     text-decoration: none;
-   }
-   
-   .nav-link:hover {
+}
+
+.nav-link:hover {
     color: #ddd;
-   }
-   
-   .nav-link.active {
+}
+
+.nav-link.active {
     color: #4CAF50;
-   }
+}
