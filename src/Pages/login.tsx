@@ -1,25 +1,26 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setAuthentication } from "../store/authAction.ts";
-import axios from "axios";
+import { setAuthentication } from "../store/authAction";
+import { Navigate } from "react-router-dom";
+// import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-// Define the type for authentication payload
 interface AuthType {
   username: string;
   password: string;
 }
-
-interface ResponseType {
+interface ResponseData {
   access_token: string;
 }
+
 function Login() {
-  const dispatch = useDispatch();
+  
+  const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // Function to handle form submission
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     let formContent: AuthType = {
@@ -34,17 +35,13 @@ function Login() {
         },
       });
       console.log("Done.", response.data);
-
-      const responseData: ResponseType = {
-        ...response.data,
-      };
-
-      console.log("response data.", responseData);
-
-      localStorage.setItem("token", responseData.access_token)
-
+      const responseData: ResponseData = response.data;
+      console.log("test", responseData);
+      localStorage.setItem("token", responseData.access_token);
+      localStorage.setItem("isLoggedIn", true.toString()); //  login status to local storage
 
       setIsLoggedIn(true);
+      navigate("/about");
     } catch (error) {
       console.error(error);
     }
@@ -78,5 +75,4 @@ function Login() {
     </div>
   );
 }
-
 export default Login;

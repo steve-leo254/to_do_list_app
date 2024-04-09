@@ -1,11 +1,9 @@
 import {SET_AUTHENTICATED} from './type'
 
 
-
-
-
 type AuthType = {
     name:string;
+    // password:string;
     isLoggedIn: boolean
 }
 

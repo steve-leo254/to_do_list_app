@@ -5,7 +5,7 @@ import AboutUs from './pages/AboutUs.tsx';
 import Login from './pages/login.tsx';
 import HomeComponent from './pages/index.tsx';
 import Layout from "./components/Layout.tsx"
-import ContactUs from './pages/Contact.tsx';
+// import ContactUs from './pages/Contact.tsx';
 import LogoutPage from './pages/login.tsx';
 
 
@@ -17,7 +17,7 @@ function App() {
       <Route  element={<Layout />} >
         <Route index element ={<HomeComponent/>}/>
         <Route path="/about" element={<AboutUs />} />
-        <Route path="/contact" element={<ContactUs/>}/>
+        {/* <Route path="/contact" element={<ContactUs/>}/> */}
         <Route path='/logout' element={<LogoutPage/>}/>
       </Route>
     </Routes>
